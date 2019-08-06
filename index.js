@@ -1,7 +1,13 @@
 const express = require('express');
 const server = express();
 
+const visitorRoutes = require('./routes/visitors-routes');
+const adminRoutes = require('./routes/admin-routes');
+
 server.use(express.json());
+
+server.use('/api/visitors', visitorRoutes);
+server.use('/api/admin', adminRoutes);
 
 //Define port
 const port = process.env.PORT || 5000;
